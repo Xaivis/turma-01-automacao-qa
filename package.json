@@ -7,7 +7,8 @@
     "star": "node .",
     "type-check": "tsc --noEmit",
     "pro": "npx tsx src/aula26/promise.ts",
-    "atv": "npx tsx src/atividades/automacao.ts"
+    "atv": "npx tsx src/atividades/automacao.ts",
+    "case": "npx tsx src/atividades/casos-de-teste.ts"
   },
   "keywords": [],
   "author": "",
