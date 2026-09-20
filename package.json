@@ -8,7 +8,8 @@
     "type-check": "tsc --noEmit",
     "pro": "npx tsx src/aula26/promise.ts",
     "atv": "npx tsx src/atividades/automacao.ts",
-    "case": "npx tsx src/atividades/casos-de-teste.ts"
+    "case": "npx tsx src/atividades/casos-de-teste.ts",
+    "arr": "npx tsx src/atividades/arraysExemplos.ts"
   },
   "keywords": [],
   "author": "",
