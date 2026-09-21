@@ -9,7 +9,8 @@
     "pro": "npx tsx src/aula26/promise.ts",
     "atv": "npx tsx src/atividades/automacao.ts",
     "case": "npx tsx src/atividades/casos-de-teste.ts",
-    "arr": "npx tsx src/atividades/arraysExemplos.ts"
+    "arr": "npx tsx src/atividades/arraysExemplos.ts",
+    "test": "vitest"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.20.3",
-    "@types/prompt-sync": "^4.2.3"
+    "@types/prompt-sync": "^4.2.3",
+    "vitest": "^5.0.1"
   }
 }

@@ -1,3 +1,4 @@
 /node_modules
 datadir
 run_results.json
+.vitest/
