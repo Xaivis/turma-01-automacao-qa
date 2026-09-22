@@ -1,78 +1,28 @@
-# Automação QA - Casos de Teste em TypeScript
+# Automação QA - Curso de Teste de Software
 
-Este projeto faz parte do curso de **Automação de Testes de Software (QA)** e tem como objetivo praticar conceitos fundamentais de **TypeScript**, como criação de tipos personalizados (`type`), tipagem estática de parâmetros e retorno de funções, manipulação de objetos e identificação de erros de compilação/tipagem estática.
-
----
-
-## 📋 O que foi feito no arquivo `casos-de-teste.ts`
-
-No arquivo `src/atividades/casos-de-teste.ts`, foram implementadas as seguintes estruturas:
-
-1. **Definição de Tipo (`type CasosDeTestes`)**:
-   Estrutura de dados para representar um caso de teste:
-   ```typescript
-   type CasosDeTestes = {
-       id: number;
-       titulo: string;
-       descricao: string;
-       automatizavel: boolean;
-   }
-   ```
-
-2. **Função de Criação (`criarCasosDeTeste`)**:
-   Recebe os parâmetros tipados e retorna um objeto do tipo `CasosDeTestes`:
-   ```typescript
-   function criarCasosDeTeste(id: number, titulo: string, descricao: string, automatizavel: boolean): CasosDeTestes {
-       return { id, titulo, descricao, automatizavel };
-   }
-   ```
-
-3. **Função Utilitária de Descrição (`descrever`)**:
-   Retorna uma string formatada contendo o identificador e o título do caso de teste.
-
-4. **Função de Atualização de Status (`marcarAutomatizavel`)**:
-   Verifica se o caso de teste já é automatizável; se não for, altera a propriedade `automatizavel` para `true`.
-
-5. **Instanciação de Casos de Teste**:
-   Criação de 5 casos de teste (`primeiroCasoDeTeste` até `quintoCasoDeTeste`) para simular cenários como *Login*, *Cadastro*, *Produto*, *Carrinho* e *Checkout*.
+Repositório de atividades e estudos práticos em **TypeScript** e automação de testes com **Vitest** do curso de Teste de Software (QA).
 
 ---
 
-## 🔍 Análise do Erro da Imagem
+## 📁 Estrutura do Projeto
 
-![Erro de Tipagem no VS Code](./assets/erro-tipagem.png)
-
-Durante a instanciação do `primeiroCasoDeTeste`, o editor apontou erros e alertas:
-
-```typescript
-const primeiroCasoDeTeste = criarCasosDeTeste
-(1, "Login", 12345, false)
-```
-
-### 1. Erro de Tipagem (Type Error / TS2345) 🔴
-
-- **Mensagem do Erro**:
-  > `"O argumento do tipo 'number' não é atribuível ao parâmetro do tipo 'string'."`
-- **Tipo de Erro**:
-  **Erro de Tipo em Tempo de Compilação (Static Type Checking Error)** provocado pelo verificador de tipos do TypeScript.
-- **Causa**:
-  O 3º parâmetro da função `criarCasosDeTeste` é `descricao`, que foi estritamente definido com o tipo `string`. Ao invocar a função, foi passado o valor numérico `12345` (`number`), gerando incompatibilidade de tipos:
-  - **Esperado**: `string`
-  - **Recebido**: `number` (`12345`)
-
-#### ✅ Como Corrigir:
-Passe um valor do tipo `string` para o campo de descrição:
-```typescript
-// Opção 1: Passar a descrição textual
-const primeiroCasoDeTeste = criarCasosDeTeste(1, "Login", "Fluxo de login de usuário", false);
-
-// Opção 2: Passar o número entre aspas como string
-const primeiroCasoDeTeste = criarCasosDeTeste(1, "Login", "12345", false);
-```
+* **`src/atividades/`**: Exercícios e atividades práticas de TypeScript (tipagem estática, Promises, manipulação de arrays, etc.).
+* **`src/testes/`**: Testes automatizados desenvolvidos com Vitest (`pow`, `login`, `math`, `createUser`, `soma`).
+* **`src/aula25/` & `src/aula26/`**: Conteúdos abordados em aula.
 
 ---
 
+## 📚 Documentações e Explicações (.md)
 
+Este repositório conta com arquivos Markdown (`.md`) dedicados que explicam detalhadamente o funcionamento, a teoria e a prática dos códigos criados:
+
+| Arquivo de Explicação | Localização | Assunto Abordado |
+| :--- | :--- | :--- |
+| **[explicação-casos-de-teste.md](./src/atividades/explicação-casos-de-teste.md)** | `src/atividades/` | Explicação dos tipos (`type`), funções de casos de teste e resolução do erro de tipagem TS2345. |
+| **[explicacao_async_await.md](./src/atividades/explicacao_async_await.md)** | `src/atividades/` | Ciclo de vida, linha do tempo e fluxo visual de funções assíncronas com `Promise` e `async/await`. |
+| **[explicacao-pow-test.md](./src/testes/explicacao-pow-test.md)** | `src/testes/` | Explicação dos testes unitários de potenciação com Vitest, asserções (`expect`) e matchers (`toBe`). |
+
+---
 
 ## 🚀 Como Executar o Projeto
 
@@ -80,21 +30,25 @@ const primeiroCasoDeTeste = criarCasosDeTeste(1, "Login", "12345", false);
 - [Node.js](https://nodejs.org/) instalado na máquina.
 
 ### 1. Instalar as dependências
-No terminal, execute na raiz do projeto:
 ```bash
 npm install
 ```
 
-### 2. Verificar erros de tipos (Type-check)
-Para checar a tipagem do TypeScript sem gerar arquivos de saída:
+### 2. Verificar tipos (Type-check)
+Para validar os tipos do TypeScript sem gerar arquivos de build:
 ```bash
 npm run type-check
 ```
-> O TypeScript irá acusar o erro de tipo em `src/atividades/casos-de-teste.ts` na linha onde o número `12345` é passado.
 
-### 3. Executar o arquivo de casos de teste
-Após corrigir o erro de tipo, execute o script criado com o comando:
+### 3. Rodar Testes Automatizados
 ```bash
-npm run case
+npm test
 ```
-*(Este comando roda `npx tsx src/atividades/casos-de-teste.ts`) script criado pelo usuário a fim de agilizar a execução do arquivo*
+
+### 4. Scripts Rápidos para Atividades
+| Comando | Descrição |
+| :--- | :--- |
+| `npm run case` | Executa o arquivo `casos-de-teste.ts` |
+| `npm run arr` | Executa o arquivo `arraysExemplos.ts` |
+| `npm run atv` | Executa o arquivo `automacao.ts` |
+| `npm run pro` | Executa o arquivo de Promises da aula 26 |

@@ -35,4 +35,3 @@ const somaDasIdades = pessoas.reduce(function(acumulador, pessoa){
 }, 0);
 console.log(`A soma das idades é: ${somaDasIdades}`);
 console.log(`A media das idades é: ${(somaDasIdades / pessoas.length).toFixed(2)}`);
-
